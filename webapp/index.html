@@ -151,10 +151,9 @@
     try {
       const uid = tg?.initDataUnsafe?.user?.id;
       const byId = Array.isArray(ADMIN_IDS) && ADMIN_IDS.includes(uid);
-      const byQuery = new URLSearchParams(location.search).get('admin') === '1';
-      return Boolean(byId || byQuery);
+      return Boolean(byId);
     } catch(e) {
-      return new URLSearchParams(location.search).get('admin') === '1';
+      return false;
     }
   })();
 
